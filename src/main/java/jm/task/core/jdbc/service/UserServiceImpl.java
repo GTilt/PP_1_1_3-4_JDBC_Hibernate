@@ -1,38 +1,43 @@
 package jm.task.core.jdbc.service;
 
+import com.sun.xml.bind.v2.TODO;
+import jm.task.core.jdbc.dao.UserDao;
+import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
-/*
-Соединение
-логику че сделать
-отправить то что сделали
-закрыть соединение
-*/
 
 public class UserServiceImpl implements UserService {
-    public void createUsersTable() {
 
+    private final UserDao userDao = new UserDaoJDBCImpl();
+
+    public void createUsersTable() {
+        try {
+            userDao.createUsersTable();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void dropUsersTable() {
-
+        userDao.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-
+        userDao.saveUser(name, lastName, age);
     }
 
     public void removeUserById(long id) {
-
+        userDao.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        return null;
+        return userDao.getAllUsers();
     }
 
     public void cleanUsersTable() {
-
+        userDao.cleanUsersTable();
     }
 }

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Util {
     // реализуйте настройку соеденения с БД
     public static Connection getNewConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/first";
+        String url = "jdbc:mysql://localhost:3307/data";
         String user = "tilt";
         String passwd = "tilt";
         return DriverManager.getConnection(url, user, passwd);

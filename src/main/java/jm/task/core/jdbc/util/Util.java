@@ -18,7 +18,7 @@ public class Util {
     private static SessionFactory sessionFactory;
 
     public static Connection getNewConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3307/data";
+        String url = "jdbc:mysql://localhost:3306/users";
         String user = "tilt";
         String passwd = "tilt";
         return DriverManager.getConnection(url, user, passwd);
@@ -28,7 +28,7 @@ public class Util {
         if (sessionFactory == null) {
             try{
                 Configuration configuration = new Configuration();
-                configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3307/data");
+                configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/users");
                 configuration.setProperty("hibernate.connection.username", "tilt");
                 configuration.setProperty("hibernate.connection.password", "tilt");
                 configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");

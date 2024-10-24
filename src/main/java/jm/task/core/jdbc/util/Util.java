@@ -1,8 +1,6 @@
 package jm.task.core.jdbc.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Util {
     // реализуйте настройку соеденения с БД
@@ -14,8 +12,12 @@ public class Util {
 
     }
 
-    public static Connection getNewConnection() throws SQLException {
-        return DriverManager.getConnection(url, user, passwd);
+    public static Connection getNewConnection()  {
+        try {
+            return DriverManager.getConnection(url, user, passwd);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
